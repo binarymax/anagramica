@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+
+	<title>A|N|A|G|R|A|M|I|C|A</title>
+
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+</head>
+<body>
+
+	<div id="header">
+		<h1 class="logo center">ANAGRAMICA</h1>
+	</div>
+
+	<div class="center">
+		<h2>API</h2>
+		Hi There!  Anagramica offers an API!  This API lets you:
+		<ul>
+			<li>Get a best case anagram for a given letter set</li>
+			<li>Get all anagrams for a given letter set</li>
+			<li>See if a word exists in the dictionary</li>
+			<li>Wrap results in a JSONP callback</li>
+		</ul>
+	</div>
+
+	<hr>
+
+	<div class="center">
+		<h2>/best (GET)</h2>
+		<h3>http://www.anagramica.com/best/:letters</h3>
+		<p>
+			Returns: <br> 
+			&nbsp;&nbsp;&nbsp;{best:[&lt;word1&gt;&lt;,word2&gt;&lt;,word3&gt;&lt;...&gt;]}
+		</p>
+	</div>
+
+	<hr>
+
+	<div class="center">
+		<h2>/all (GET)</h2>
+		<h3>http://www.anagramica.com/all/:letters</h3>
+		<p>
+			Returns: <br> 
+			&nbsp;&nbsp;&nbsp;{all:[&lt;word1&gt;&lt;,word2&gt;&lt;,word3&gt;&lt;...&gt;]}
+		</p>
+	</div>
+
+	<hr>
+
+	<div class="center">
+		<h2>/lookup (GET)</h2>
+		<h3>http://www.anagramica.com/lookup/:word</h3>
+		<p>
+			Returns: <br> 
+			&nbsp;&nbsp;&nbsp;{found:&lt;1|0&gt;}
+		</p>
+	</div>
+
+	<hr>
+
+	<div class="center">
+		<h2>JSONP</h2>
+		<h3>?callback=&lt;callback&gt;</h3>
+		<p>
+			Returns: <br> 
+			&nbsp;&nbsp;&nbsp;{found:&lt;1|0&gt;}
+		</p>
+	</div>
+
+	<div id="footer">
+		<div class="footnotes center">A game by <a href="http://binarymax.com" target="top">Max Irwin</a> | Copyright 2011 | <a href="/privacy.html">Privacy Policy</a> | <a href="/api">API</a></div>
+	</div>
+
+</body>
+</html>

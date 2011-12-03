@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+
+	<title>A|N|A|G|R|A|M|I|C|A</title>
+
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+	<script type="text/javascript" src="/javascripts/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="/javascripts/anagramica.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){		
+			anagramica.game.init();
+			anagramica.ui.init();
+			anagramica.ui.messageLetters("ANAGRAMICA",anagramica.ui.ready);
+		});
+	</script>
+
+</head>
+<body>
+
+	<div id="header">
+		<div class="title left">score:<span id="score" class="score">0</span></div>
+		<div class="title right">highest:<span id="high" class="score">0</span></div>
+	</div>
+
+	<div class="board center">
+		<table class="letters"><tr>
+			<td><div class="letter">&nbsp;</div></td>
+			<td><div class="letter">&nbsp;</div></td>
+			<td><div class="letter">&nbsp;</div></td>
+			<td><div class="letter">&nbsp;</div></td>
+			<td><div class="letter">&nbsp;</div></td>
+			<td><div class="letter">&nbsp;</div></td>
+			<td><div class="letter">&nbsp;</div></td>
+			<td><div class="letter">&nbsp;</div></td>
+			<td><div class="letter">&nbsp;</div></td>
+			<td><div class="letter">&nbsp;</div></td>
+		</tr></table>
+	</div>
+	<div class="buttons center">
+	      <input type="button" value="(C)onsonant" id="consonant" />
+	      <input type="button" value="(V)owel" id="vowel" />
+	</div>
+
+	<div class="scratch center">
+		<div class="timer">
+			<div class="elapsed"></div>
+		</div>
+		<ul class="answers">
+			<li class="answer"><input type="text" size="10" maxlength="10" /></li>
+		</ul>
+	</div>
+
+	<div id="words"></div>
+	
+	<div id="new" class="center">Press space bar to start a new game!</div>
+
+	<div id="instructions" class="center">
+		<p>
+			How to play: get as many anagrams as possible, using the letters on the board, within the time limit.<br>
+	
+			Start by choosing the board letters, by pressing 'c' for a consonant, or 'v' for a vowel.<br>
+	
+			Once you have chosen all 10 board letters, the 30 second timer will start.<br>
+	
+			When you think of a word, type it into the textbox, and press enter or tab.<br>
+	
+			The word will be saved below to be checked later.<br>
+	
+			You can't use a letter from the board more than once in a word.<br>
+	
+			A word is valid if it only uses letters on the board and is in later found in the dictionary.<br>	
+	
+			You can continue to enter words until the time runs out.
+		</p>
+		<p>
+			Points: You get 1 point for each letter in a valid word.<br>
+			If a word is not valid you lose 11 points minus the length of the word
+			(short incorrect words are penalized more than long incorrect words).<br>
+			Any valid word that is as long as the best possible anagram gets double points. 
+		</p>
+	</div>
+
+	<div id="footer">
+		<div class="footnotes center">A game by <a href="http://binarymax.com" target="top">Max Irwin</a> | Copyright 2011 | <a href="/privacy.html">Privacy Policy</a> | <a href="/api">API</a></div>
+	</div>
+
+</body>
+</html>
+
