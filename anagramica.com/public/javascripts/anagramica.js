@@ -81,16 +81,29 @@ if (!anagramica.game) {
 		var consonants 	= "BCDFGHJKLMNPQRSTVWXYZ";
 		var vowels 			= "AEIOU";
 		
+		var limit 			= 2;		
+		
+		var exceedsLimit = function(letter) {
+			var tmp = 0;
+			for(var i=0,l=boardletters.length;i<l;i++) {
+				if(boardletters.charAt(i)==letter) tmp++;
+				if(tmp>=limit) return true;
+			}
+			return false;
+		}		
+		
 		//Gets a consonant and adds it to the board letters
 		var getConsonant = function() {
-			var letter = consonants[parseInt(Math.random()*consonants.length)];
+			var letter = consonants.charAt(parseInt(Math.random()*consonants.length));
+			if(exceedsLimit(letter)) while(!exceedsLimit(letter = consonants.charAt(parseInt(Math.random()*consonants.length))));
 			boardletters+=letter;
 			return letter;
 		};
 
 		//Gets a vowel and adds it to the board letters
 		var getVowel = function() {
-			var letter = vowels[parseInt(Math.random()*vowels.length)];
+			var letter = vowels.charAt(parseInt(Math.random()*vowels.length));
+			if(exceedsLimit(letter)) while(!exceedsLimit(letter = vowels.charAt(parseInt(Math.random()*consonants.length))));
 			boardletters+=letter;
 			return letter;
 		};
@@ -98,13 +111,13 @@ if (!anagramica.game) {
 
 		//Checks if a word only contains letters from the board
 		var validWord = function(word) {
+			var a = boardletters.split('');
 			var i=0,j=-1,
 				w=word.toUpperCase(),
-				a=boardletters.split(''),
 				wl=word.length,
 				bl=boardletters.length;
 
-			while(i<wl && i<bl && (j=a.indexOf(w[i]))>-1) {
+			while(i<wl && i<bl && (j=a.indexOf(w.charAt(i)))>-1) {
 				//Letter found on the board, use it up!
 				a.splice(j,1);
 				i++;
@@ -189,15 +202,18 @@ if (!anagramica.game) {
 			boardletters = "";
 			score	= 0;
 			best	= [];
-			all	= [];			
-			currGameState = gameStates.waiting;
+			all	= [];	
+			currGameState = gameStates.checked;
+			anagramica.core.notify("gamestate",currGameState);
 		};
 		 
 		var getGameState = function() {
 			return currGameState;
 		};		 
 		 
-		var init = function(){
+		var init = function(){			
+			anagramica.core.notify("gamestate",currGameState);
+			
 			anagramica.core.subscribe("points","score",function(points){
 				score+=points;
 				anagramica.core.notify("score",score);
@@ -205,14 +221,17 @@ if (!anagramica.game) {
 			
 			anagramica.core.subscribe("loaded","game",function(){
 				currGameState = gameStates.waiting;
+				anagramica.core.notify("gamestate",currGameState);
 			});
 
 			anagramica.core.subscribe("started","game",function(){
 				currGameState = gameStates.letters;
+				anagramica.core.notify("gamestate",currGameState);
 			});
 			
 			anagramica.core.subscribe("chosen","game",function(){
 				currGameState = gameStates.words;
+				anagramica.core.notify("gamestate",currGameState);
 				anagramica.game.startTimer();
 			});
 
@@ -240,14 +259,18 @@ if (!anagramica.game) {
 }
 
 if (!anagramica.ui) {
-	anagramica.ui = (function() {				
+	anagramica.ui = (function() {
+		
+		var instructions = true;
 		
 		//Fancy flip the board letter
 		function setLetter(target,letter){
 			target.removeClass("flip").removeClass("flop").addClass("flip"); //style the letter
 			setTimeout(function(){
-				if (letter && letter.length) target.addClass("ready");
-				target.text(letter.toUpperCase());
+				if (letter && letter.length) {
+					target.addClass("ready");
+					target.text(letter.toUpperCase());
+				}
 				target.addClass("flop");
 			},150); //set the board letter text
 		}
@@ -286,9 +309,16 @@ if (!anagramica.ui) {
 	
 				if(target.length) {
 					//if the board is not filled up...
-					var method = ($(this).attr("id")==="consonant")?"getConsonant":"getVowel";
-					var letter = anagramica.game[method](); //get the appropriate letter type
+
+					var letter = '';
+					if ($(this).attr("id")==="consonant") {
+						letter = anagramica.game.getConsonant();
+					} else if ($(this).attr("id")==="vowel") { 
+						letter = anagramica.game.getVowel();
+					}
+					//set letter depending on type
 					setLetter(target,letter);
+					
 				}
 	
 				if(!target.length || !target.parent().next().children(":first").is(".letter")) {
@@ -390,6 +420,7 @@ if (!anagramica.ui) {
 		var hideNewGame = function() {
 			$("#new").hide();
 			$("#instructions").hide();
+			
 		};
 
 
@@ -406,7 +437,7 @@ if (!anagramica.ui) {
 				}
 			}
 
-			if(anagramica.game.getGameState() == anagramica.game.gameStates.waiting) {
+			if(anagramica.game.getGameState() == anagramica.game.gameStates.waiting  || anagramica.game.getGameState() == anagramica.game.gameStates.checked) {
 				if(e.which==32) {
 					//Space Bar to start a new game
 					newGame();				
@@ -447,7 +478,6 @@ if (!anagramica.ui) {
 		
 		var ready = function(){
 			showNewGame();
-			$("#instructions").show();
 			anagramica.core.notify("loaded");
 		}
 
@@ -481,12 +511,60 @@ if (!anagramica.ui) {
 				$("#high").text(high);
 			});
 
+			anagramica.core.subscribe("gamestate","instructions",function(gameState){
+				//Show the proper instructions text:
+
+				if(!instructions) {
+					$("#instructions").hide();
+					return;
+				}				
+				
+				$("#instructions p").hide();
+				$("#instructions").show();
+				$("#new").hide();
+
+				switch(gameState) {
+
+					case anagramica.game.gameStates.loading:
+						$("#new").show();
+						$("#intro").show();
+						break;
+
+					case anagramica.game.gameStates.waiting:
+						$("#new").show();				
+						$("#intro").show();
+						break;
+
+					case anagramica.game.gameStates.letters:
+						$("#choose").show();
+						break;
+
+					case anagramica.game.gameStates.words:
+						$("#answer").show();
+						break;
+
+					case anagramica.game.gameStates.checked:
+						$("#new").show();
+						$("#points").show();					
+						break;
+
+				};
+			});
+
+
 			//Consonant/Vowel choice by button or keypress
 			$("#consonant,#vowel").bind("click",nextGameLetter);
 			$(document).bind("keypress",handleKeys);
 				   
 			//Answer text input keypress
 			$(".answer input").bind("keypress",handleAnswer);
+			
+			$("#new").live("click",newGame);			
+			
+			$("#close").live("click",function() {
+				$("#instructions").hide();
+				instructions = false;
+			});
 
 		}
 		
@@ -499,4 +577,13 @@ if (!anagramica.ui) {
 			ready:ready
 		}
 	})();
+}
+
+if (!Array.prototype.indexOf) {
+	Array.prototype.indexOf = function(obj) {
+		for(var i=0,l=this.length;i<l;i++) {
+			if (this[i]===obj) return i;
+		}
+		return -1;
+	}
 }

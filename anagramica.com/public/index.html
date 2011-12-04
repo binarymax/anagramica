@@ -6,7 +6,7 @@
 
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 
-	<script type="text/javascript" src="/javascripts/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="/javascripts/anagramica.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){		
@@ -57,36 +57,72 @@
 	<div id="new" class="center">Press space bar to start a new game!</div>
 
 	<div id="instructions" class="center">
-		<p>
-			How to play: get as many anagrams as possible, using the letters on the board, within the time limit.<br>
 	
-			Start by choosing the board letters, by pressing 'c' for a consonant, or 'v' for a vowel.<br>
+		<div id="close">X</div>	
 	
-			Once you have chosen all 10 board letters, the 30 second timer will start.<br>
-	
-			When you think of a word, type it into the textbox, and press enter or tab.<br>
-	
-			The word will be saved below to be checked later.<br>
-	
-			You can't use a letter from the board more than once in a word.<br>
-	
-			A word is valid if it only uses letters on the board and is in later found in the dictionary.<br>	
-	
-			You can continue to enter words until the time runs out.
-		</p>
-		<p>
-			Points: You get 1 point for each letter in a valid word.<br>
+		<p id="intro">
+			Anagramica: The game of letters.<br> <br>
 			
-			If a word is not valid you lose 11 points minus the length of the word
-			(short incorrect words are penalized more than long incorrect words).<br>
+			Find as many words as you can within the time limit!
 			
-			Any valid word that is as long as the best possible anagram gets double points. 
 		</p>
+		
+		<p id="choose">
+		  Choose ten letters, consonants or vowels, by pressing 'c' or 'v'
+		  
+		</p>
+		
+		<p id="answer">
+		  Enter a word using only the letters on the board.  <br> <br>
+		  
+		  Press Enter or Tab when you finish a word. <br> <br>
+		  
+		  Enter as many words as you can. <br> <br>
+		  		  
+		  Stop reading this and start playing!
+			
+		</p>
+		
+		<p id="points">
+			<!-- <span id="congratulatorytext"></span>, you scored <span id="scoretext"></span> points! <br> -->
+			
+			For correct words, you get 1 point per letter. <br> <br> 
+			
+			For wrong words, you lose the inverse. <br> <br>
+			
+			For correct words as long as possible, you get double points!
+			
+			<!-- <div class="newhighscore">Also, you beat your high score!</div> -->
+			
+		</p>
+		
 	</div>
 
 	<div id="footer">
-		<div class="footnotes center">A game by <a href="http://binarymax.com" target="top">Max Irwin</a> | Copyright 2011 | <a href="/privacy.html">Privacy Policy</a> | <a href="/api">API</a></div>
+		<div class="footnotes center">A game by <a href="http://binarymax.com" target="top">Max Irwin</a> | <a href="/privacy.html">Privacy Policy</a> | <a href="/api">API</a> | have fun!</div>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) {return;}
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<div id="twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Play! http://www.anagramica.com" data-count="horizontal">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></div>
+		<div id="facebook"><div class="fb-like" data-href="http://www.anagramica.com" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div></div>		
+		
 	</div>
+
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-22107593-3']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
 
 </body>
 </html>
