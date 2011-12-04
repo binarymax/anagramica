@@ -15,91 +15,99 @@
 			anagramica.ui.messageLetters("ANAGRAMICA",anagramica.ui.ready);
 		});
 	</script>
-
+	<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/ie.css" />
+	<![endif]-->
 </head>
 <body>
+
+	<div id="back"></div>
 
 	<div id="header">
 		<div class="title left">score:<span id="score" class="score">0</span></div>
 		<div class="title right">highest:<span id="high" class="score">0</span></div>
 	</div>
 
-	<div class="board center">
-		<table class="letters"><tr>
-			<td><div class="letter">&nbsp;</div></td>
-			<td><div class="letter">&nbsp;</div></td>
-			<td><div class="letter">&nbsp;</div></td>
-			<td><div class="letter">&nbsp;</div></td>
-			<td><div class="letter">&nbsp;</div></td>
-			<td><div class="letter">&nbsp;</div></td>
-			<td><div class="letter">&nbsp;</div></td>
-			<td><div class="letter">&nbsp;</div></td>
-			<td><div class="letter">&nbsp;</div></td>
-			<td><div class="letter">&nbsp;</div></td>
-		</tr></table>
-	</div>
-	<div class="buttons center">
-	      <input type="button" value="(C)onsonant" id="consonant" />
-	      <input type="button" value="(V)owel" id="vowel" />
-	</div>
-
-	<div class="scratch center">
-		<div class="timer">
-			<div class="elapsed"></div>
+	<div id="game">
+	
+		<div class="board center">
+			<table class="letters"><tr>
+				<td><div class="letter">&nbsp;</div></td>
+				<td><div class="letter">&nbsp;</div></td>
+				<td><div class="letter">&nbsp;</div></td>
+				<td><div class="letter">&nbsp;</div></td>
+				<td><div class="letter">&nbsp;</div></td>
+				<td><div class="letter">&nbsp;</div></td>
+				<td><div class="letter">&nbsp;</div></td>
+				<td><div class="letter">&nbsp;</div></td>
+				<td><div class="letter">&nbsp;</div></td>
+				<td><div class="letter">&nbsp;</div></td>
+			</tr></table>
 		</div>
-		<ul class="answers">
-			<li class="answer"><input type="text" size="10" maxlength="10" /></li>
-		</ul>
-	</div>
+		<div class="buttons center">
+		      <input type="button" value="(C)onsonant" id="consonant" />
+		      <input type="button" value="(V)owel" id="vowel" />
+		</div>
+	
+		<div class="scratch center">
+			<div class="timer">
+				<div class="elapsed"></div>
+			</div>
+			<ul class="answers">
+				<li class="answer"><input type="text" size="10" maxlength="10" /></li>
+			</ul>
+		</div>
+	
+		<div id="words"></div>
+		
+		<div id="new" class="center">Press space bar to start a new game!</div>
+	
+		<div id="instructions" class="center">
+		
+			<div id="close">X</div>	
+		
+			<p id="intro">
+				Anagramica: The game of letters.<br> <br>
+				
+				Find as many words as you can within the time limit!
+				
+			</p>
+			
+			<p id="choose">
+			  Choose ten letters, consonants or vowels, by pressing 'c' or 'v'
+			  
+			</p>
+			
+			<p id="answer">
+			  Enter a word using only the letters on the board.  <br> <br>
+			  
+			  Press Enter or Tab when you finish a word. <br> <br>
+			  
+			  Enter as many words as you can. <br> <br>
+			  		  
+			  Stop reading this and start playing!
+				
+			</p>
+			
+			<p id="points">
+				<!-- <span id="congratulatorytext"></span>, you scored <span id="scoretext"></span> points! <br> -->
+				
+				For correct words, you get 1 point per letter. <br> <br> 
+				
+				For wrong words, you lose the inverse. <br> <br>
+				
+				For correct words as long as possible, you get double points!
+				
+				<!-- <div class="newhighscore">Also, you beat your high score!</div> -->
+				
+			</p>
+			
+		</div>
 
-	<div id="words"></div>
-	
-	<div id="new" class="center">Press space bar to start a new game!</div>
-
-	<div id="instructions" class="center">
-	
-		<div id="close">X</div>	
-	
-		<p id="intro">
-			Anagramica: The game of letters.<br> <br>
-			
-			Find as many words as you can within the time limit!
-			
-		</p>
-		
-		<p id="choose">
-		  Choose ten letters, consonants or vowels, by pressing 'c' or 'v'
-		  
-		</p>
-		
-		<p id="answer">
-		  Enter a word using only the letters on the board.  <br> <br>
-		  
-		  Press Enter or Tab when you finish a word. <br> <br>
-		  
-		  Enter as many words as you can. <br> <br>
-		  		  
-		  Stop reading this and start playing!
-			
-		</p>
-		
-		<p id="points">
-			<!-- <span id="congratulatorytext"></span>, you scored <span id="scoretext"></span> points! <br> -->
-			
-			For correct words, you get 1 point per letter. <br> <br> 
-			
-			For wrong words, you lose the inverse. <br> <br>
-			
-			For correct words as long as possible, you get double points!
-			
-			<!-- <div class="newhighscore">Also, you beat your high score!</div> -->
-			
-		</p>
-		
 	</div>
 
 	<div id="footer">
-		<div class="footnotes center">A game by <a href="http://binarymax.com" target="top">Max Irwin</a> | <a href="/privacy.html">Privacy Policy</a> | <a href="/api">API</a> | have fun!</div>
+		<div class="footnotes center">A game by <a href="http://binarymax.com" target="top" class="footanchor">Max Irwin</a> | <a href="/privacy.html" class="footanchor">Privacy Policy</a> | <a href="/api" class="footanchor">API</a> | have fun!</div>
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
@@ -126,4 +134,3 @@
 
 </body>
 </html>
-

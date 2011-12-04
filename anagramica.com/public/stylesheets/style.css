@@ -2,16 +2,37 @@ body {
   padding: 50px;
   font: 14px Helvetica, Arial, sans-serif;
   background-image: url("/images/square_bg.png");
+	
 }
-
-a { color: #00B7FF; }
 
 h1.logo { padding:0px; margin-top:0px; margin-bottom:0px; width:150px;}
 
 hr { border:1px dashed #ccc; }
 
+#back {
+	position:fixed;
+	top:-100px;
+	left:0px;
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding:0px;
+	margin-left:auto;
+	margin-right:auto;
+	z-index:-1;
+
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 66%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.65)), color-stop(66%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 66%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 66%,rgba(0,0,0,0) 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 66%,rgba(0,0,0,0) 100%); /* IE10+ */
+	background: radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 66%,rgba(0,0,0,0) 100%); /* W3C */
+
+}
+
 /* Header */
-#header { position:fixed; top:0px; left:0px; width:100%; border-bottom:1px solid #333; padding:10px; color:#fff; 
+#header { 
+	position:fixed; top:0px; left:0px; width:100%; border-bottom:1px solid #333; padding:10px; color:#fff; 
 	background: #1e5799; /* Old browsers */
 	background: -moz-linear-gradient(-45deg, #1e5799 0%, #2989d8 88%, #207cca 99%, #7db9e8 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#1e5799), color-stop(88%,#2989d8), color-stop(99%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
@@ -22,29 +43,43 @@ hr { border:1px dashed #ccc; }
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
-.title { font-size:16px; }
-.score { font-size:16px; }
+
+/* Game body */
+#game {
+	padding:10px;
+	min-height:600px;
+	width:800px;
+	background-color:#eee;
+	border:1px solid #333;
+	border-radius:8px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+.title { font-size:16px; font-weight:bold; }
+.score { font-size:16px; font-weight:normal;  }
 .right { float:right; margin-right:20px; }
 .left  { float:left; margin-left:10px; }
 .center {margin-left:auto; margin-right:auto;}
 
 /* Board and letters */
 .board { width:750px; border-top:1px dashed #ccc;  border-bottom:1px dashed #ccc; }
-.letters { list-style-type: none; white-space: nowrap; }
+.letters { list-style-type: none; white-space: nowrap; margin:0px; padding:0px; }
 .buttons { margin-top:30px; width:200px; display:none; }
 .wrapper { display:inline; }
 .letter {
-    font-size:36px;
-    font-family:monospace; 
+    font-size: 32px;
+    font-family: Arial, Monospace, sans-serif; 
     color:#ffffff;
     font-weight:bold;
     margin:10px;
     border-radius:4px;
     border:1px solid #333;
-    background-color: #cccccc;
 	 width:50px;
     height:40px;
     text-align:center;
+    vertical-align:middle;
     padding-top:5px;
 	-webkit-transform:scale(1,1.0);
 	-moz-transform:scale(1,1.0);
@@ -96,14 +131,14 @@ hr { border:1px dashed #ccc; }
 
 .ready { 
 
-	background: #1e5799; /* Old browsers */
-	background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
-	background: linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+background: #81d044; /* Old browsers */
+background: -moz-linear-gradient(top, #81d044 0%, #479113 50%, #81d044 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#81d044), color-stop(50%,#479113), color-stop(100%,#81d044)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #81d044 0%,#479113 50%,#81d044 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #81d044 0%,#479113 50%,#81d044 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #81d044 0%,#479113 50%,#81d044 100%); /* IE10+ */
+background: linear-gradient(top, #81d044 0%,#479113 50%,#81d044 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#81d044', endColorstr='#81d044',GradientType=0 ); /* IE6-9 */
 
 	/* background-color:#6666C6; */ 
 
@@ -112,12 +147,7 @@ hr { border:1px dashed #ccc; }
 /* Answers */
 .scratch { width:600px; display:none;}
 .timer { width:400px; height:34px; border:1px solid #333; padding:0px; float:left; margin-right:20px;}
-.elapsed { width:0%; height:34px; margin:0px; 
-
-	background: #f85032; /* Old browsers */
-
-}
-
+.elapsed { width:0%; height:34px; margin:0px; background: #f85032; }
 .answers { list-style-type:none; }
 .answer input { font-size:24px; border:1px solid #333; font-family:monospace; }
 
@@ -281,6 +311,8 @@ hr { border:1px dashed #ccc; }
 	margin:0px;
 	padding:10px;
 	color:white;
+	text-align:center;
+	border-top:1px solid #333; 
 	
 	background: #1e5799; /* Old browsers */
 	background: -moz-linear-gradient(-45deg, #1e5799 0%, #2989d8 88%, #207cca 99%, #7db9e8 100%); /* FF3.6+ */
@@ -297,6 +329,10 @@ hr { border:1px dashed #ccc; }
 	width:500px;
 }
 
+.footanchor {
+	color:#fff;
+}
+
 #facebook {
 	position:fixed;
 	bottom:10px;
@@ -306,7 +342,7 @@ hr { border:1px dashed #ccc; }
 
 #twitter {
 	position:fixed;
-	bottom:10px;
+	bottom:5px;
 	right:10px;
 	z-index: 10;
 }
