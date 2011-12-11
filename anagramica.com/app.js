@@ -53,6 +53,11 @@ app.get('/', function(req, res){
 	res.sendfile('./public/index.html');
     });
 
+//About Page
+app.get('/about.html', function(req, res){
+	res.sendfile('./public/about.html');
+    });
+
 //Privacy Policy Page
 app.get('/privacy.html', function(req, res){
 	res.sendfile('./public/privacy.html');

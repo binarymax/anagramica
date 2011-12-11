@@ -69,19 +69,34 @@ if (!anagramica.game) {
 
 	anagramica.game = (function() {
 
+		var gameTypes		= {manual:0,automatic:1}; 
 		var gameStates		= {loading:1,waiting:2,letters:3,words:4,checking:5};
 		var currGameState = gameStates.loading;
 
 		var boardletters 	= ""; //Letters currently on the board
+		var timelimit		= 45; //Starting Time limit in seconds
+		var gametype		= gameTypes.automatic;	
 		var score 			= 0;  //Player's running total score
 		var high				= 0;  //Player's highest score
 		var best				= []; //Best possible anagrams
 		var all				= []; //All possible anagrams
 
-		var consonants 	= "BCDFGHJKLMNPQRSTVWXYZ";
-		var vowels 			= "AEIOU";
+		var consonants 		= "BCDFGHJKLMNPQRSTVWXYZ";
+		var consonantpoints	= "222322432212511133534";  //see about page for letter scores
+
+		var vowels 				= "AEIOU";
+		var vowelpoints		= "11112";
 		
-		var limit 			= 2;		
+		var limit 			= 2;
+		
+		var letterpoints 	= [];		
+		
+		for(var i=0,l=consonants.length;i<l;i++) {
+			letterpoints[consonants.charAt(i)] = parseInt(consonantpoints.charAt(i));
+		}
+		for(var i=0,l=vowels.length;i<l;i++) {
+			letterpoints[vowels.charAt(i)] = parseInt(vowelpoints.charAt(i));
+		}
 		
 		var exceedsLimit = function(letter) {
 			var tmp = 0;
@@ -94,20 +109,22 @@ if (!anagramica.game) {
 		
 		//Gets a consonant and adds it to the board letters
 		var getConsonant = function() {
-			var letter = consonants.charAt(parseInt(Math.random()*consonants.length));
-			if(exceedsLimit(letter)) while(!exceedsLimit(letter = consonants.charAt(parseInt(Math.random()*consonants.length))));
+			var index = parseInt(Math.random()*consonants.length);
+			var letter = consonants.charAt(index);
+			if(exceedsLimit(letter)) while(!exceedsLimit(letter = consonants.charAt(parseInt(index=Math.random()*consonants.length))));
 			boardletters+=letter;
-			return letter;
+			return {letter:letter,points:letterpoints[letter]};
 		};
 
 		//Gets a vowel and adds it to the board letters
 		var getVowel = function() {
-			var letter = vowels.charAt(parseInt(Math.random()*vowels.length));
-			if(exceedsLimit(letter)) while(!exceedsLimit(letter = vowels.charAt(parseInt(Math.random()*consonants.length))));
+			var index  = parseInt(Math.random()*vowels.length);
+			var letter = vowels.charAt(index);
+			if(exceedsLimit(letter)) while(!exceedsLimit(letter = vowels.charAt(parseInt(index=Math.random()*consonants.length))));
 			boardletters+=letter;
-			return letter;
+			return {letter:letter,points:letterpoints[letter]};
 		};
-		
+				
 
 		//Checks if a word only contains letters from the board
 		var validWord = function(word) {
@@ -152,12 +169,51 @@ if (!anagramica.game) {
 				});
 			}
 		};
+		
+		//Returns the point value of the letter
+		var letterWorth = function(letter) {
+			return letterpoints[letter.toUpperCase()];
+		};		
+		
+		//Checks if a word is valid and in the dictionary and assigns a score
+		var scoreWord = function(word,callback) {
+			
+			checkWord(word,function(found){
+				for(var i=0,s=0,l=word.length;i<l;i++) s+=letterWorth(word.charAt(i));
+				if(found && best.length && word.length===best[0].length) { 
+					callback(s*2,2); //Bonus for longest possible word!
+				} else if (found) { 
+					callback(s,1);
+				} else {
+					callback(11-word.length,0);
+				}
+			});			
+
+		};
 
 		var getBest = function(callback) {
 			//get the best anagram from the server
 			anagramica.core.ajax("/best/" + boardletters,function(data){
-				best = data.best;
-				callback(data.best);
+				best = data.best; //best is global!
+				if(best.length) {
+					var remaining = boardletters.toLowerCase().split('');
+					var word = best[0];					
+					var a = boardletters.split('');
+					var i=0,j=-1,
+						w=word.toUpperCase(),
+						wl=word.length,
+						bl=boardletters.length;
+		
+					while(i<wl && i<bl && (j=a.indexOf(w.charAt(i)))>-1) {
+						//Letter found on the board, use it up!
+						a.splice(j,1);
+						i++;
+					}
+									
+					callback(best[0],a.join(''));
+				} else {
+					callback("",boardletters);
+				}
 			});
 		};
 		
@@ -211,8 +267,20 @@ if (!anagramica.game) {
 			return currGameState;
 		};		 
 		 
+		var getGameType = function() {
+			return gametype;
+		};		 
+
 		var init = function(){			
 			anagramica.core.notify("gamestate",currGameState);
+			
+			anagramica.core.subscribe("gametype","game",function(type) {
+				gametype = type;
+			});
+
+			anagramica.core.subscribe("timelimit","game",function(limit) {
+				timelimit = limit;
+			});			
 			
 			anagramica.core.subscribe("points","score",function(points){
 				score+=points;
@@ -232,7 +300,7 @@ if (!anagramica.game) {
 			anagramica.core.subscribe("chosen","game",function(){
 				currGameState = gameStates.words;
 				anagramica.core.notify("gamestate",currGameState);
-				anagramica.game.startTimer();
+				anagramica.game.startTimer(timelimit);
 			});
 
 			anagramica.core.subscribe("checked","game",function(){
@@ -248,9 +316,13 @@ if (!anagramica.game) {
 			getAll:getAll,
 			validWord:validWord,
 			checkWord:checkWord,
+			letterWorth:letterWorth,
+			scoreWord:scoreWord,
 			startTimer:startTimer,
 			gameStates:gameStates,
 			getGameState:getGameState,
+			gameTypes:gameTypes,
+			getGameType:getGameType,
 			reset:reset,
 			init:init
 		}
@@ -262,16 +334,26 @@ if (!anagramica.ui) {
 	anagramica.ui = (function() {
 		
 		var instructions = true;
-		
+
 		//Fancy flip the board letter
-		function setLetter(target,letter){
+		function setLetter(target,letter,grey){
 			target.removeClass("flip").removeClass("flop").addClass("flip"); //style the letter
+			
 			setTimeout(function(){
-				if (letter && letter.length) {
-					target.addClass("ready");
-					target.text(letter.toUpperCase());
+				if(typeof letter == "object") {
+					if (letter && letter.letter.length) {
+						target.addClass(!grey?"ready":"remaining");
+						target.text(letter.letter.toUpperCase());
+						target.data("points",letter.points);
+					}
+				} else {
+					if (letter && letter.length) {
+						target.addClass(!grey?"ready":"remaining");
+						target.text(letter.toUpperCase());
+					}
 				}
 				target.addClass("flop");
+
 			},150); //set the board letter text
 		}
 
@@ -279,7 +361,7 @@ if (!anagramica.ui) {
 		function clearLetter(target){
 			target.removeClass("flip").removeClass("flop").addClass("flip"); //style the letter
 			setTimeout(function(){
-				target.text("").removeClass("ready").addClass("flop");
+				target.text("").removeClass("ready").removeClass("remaining").addClass("flop");
 			},150); //clear the board letter text
 		}
 
@@ -327,6 +409,40 @@ if (!anagramica.ui) {
 				}
 
 		}
+
+		//Automatically chooses the game letters
+		var autoLetters = function() {
+			//clearBoard(function(){
+				var sequence = "1101010110".split('');
+				var j=0,s=0,k=0;
+				$(".letter").each(function(){
+				
+					var seq = sequence[s++];
+
+					var letter = '';
+					if (seq=="1") {
+						letter = anagramica.game.getConsonant();
+					} else { 
+						letter = anagramica.game.getVowel();
+					}
+					
+					//set letter depending on type
+					var self=$(this);
+					setTimeout(function(){
+						(function(){
+							setLetter($(this.target),this.letter);
+							if(k++==9) {
+								setTimeout(function(){
+									freezeBoard();
+									anagramica.core.notify("chosen");
+								},1500);
+							}
+						}).call({target:self,letter:letter});
+					},s*150);
+					
+				});
+			//});
+		};
 		
 		//sends a message to the letter board
 		var messageLetters = function(text,callback) {
@@ -343,6 +459,21 @@ if (!anagramica.ui) {
 			});
 		};
 
+		//sends a message to the letter board
+		var remainingLetters = function(text,callback) {
+			if(text.length>10) return false;
+			var letters = text.split('');
+			var i=0,j=0,l=text.length;
+			$(".letter:not(.ready)").each(function(){
+				var target = $(this);
+				setTimeout(function(){
+					setLetter(target,letters[i++]||'',true);
+					if(i==l) if(callback) setTimeout(callback,750);
+				},j++*100);
+			});
+		};
+
+
 		var checkWords = function(callback) {
 			//Time up.  Validate words
 			$(".scratch").hide();
@@ -357,22 +488,20 @@ if (!anagramica.ui) {
 				var word = $(this);
 				var txt = word.find(".text");
 				var val = word.find(".value");
-				anagramica.game.checkWord(txt.text(),function(found){
+				anagramica.game.scoreWord(txt.text(),function(score,found){
+					 
 					if(found===2) {
 						//Bonus!  Longest word found
-						var score = txt.text().length * 2;
 						txt.addClass("wowz");
 						val.addClass("wowz").text('+' + score);
 						anagramica.core.notify("points",score);						
 					} else if(found===1) {
 						//player gains more points for longer words
-						var score = txt.text().length;
 						txt.addClass("yeah");
 						val.addClass("yeah").text('+' + score);
 						anagramica.core.notify("points",score);						
 					} else {
 						//player loses more points for shorter words
-						var score = 11-txt.text().length;
 						txt.addClass("nyah");
 						val.addClass("nyah").text('-' + score);
 						anagramica.core.notify("points",0-score);						
@@ -385,23 +514,30 @@ if (!anagramica.ui) {
 		};
 		
 		var showBest = function(callback) {
+
 			//show the best possible word on the board				
-			anagramica.game.getBest(function(best){
-				for(var i=0,l=best.length;i<l;i++){
-					messageLetters(best[i]);
-				}
+			anagramica.game.getBest(function(best,remaining){
+				if(best && best.length) 
+					messageLetters(best,function(){
+						remainingLetters(remaining);
+					});				
 				callback();
 			});
 		};
 		
 		function startGame() {			
 			$("#consonant,#vowel").show();
-			$(".buttons").show();
 			$(".scratch").hide();
 			$(".word").remove();
 			$(".answer input").attr("readonly",null);
 			anagramica.core.notify("score",0);
 			anagramica.core.notify("started");
+			if(anagramica.game.getGameType()==anagramica.game.gameTypes.automatic) {
+				$(".buttons").hide();
+				autoLetters();
+			} else {
+				$(".buttons").show();
+			}
 									
 		}
 
@@ -411,16 +547,26 @@ if (!anagramica.ui) {
 			hideNewGame();
 			anagramica.ui.clearBoard(anagramica.ui.startGame);
 		}
-
+		
+		var setGameOption = function() {
+			var li = $(this);
+			var pr = li.parents("div:first");
+			anagramica.core.notify(pr.attr("id"),parseInt(li.attr("data-value")));
+			li.addClass("selected");
+			li.siblings().each(function(){
+				$(this).removeClass("selected");
+			});
+		}
 
 		var showNewGame = function() {
 			$("#new").show();
+			$("#options").show();
 		};
 		
 		var hideNewGame = function() {
 			$("#new").hide();
+			$("#options").hide();
 			$("#instructions").hide();
-			
 		};
 
 
@@ -535,8 +681,13 @@ if (!anagramica.ui) {
 						$("#intro").show();
 						break;
 
-					case anagramica.game.gameStates.letters:
-						$("#choose").show();
+					case anagramica.game.gameStates.letters: 
+						if(anagramica.game.getGameType()==anagramica.game.gameTypes.manual) {
+							$("#choose").show();
+						} else {
+							$("#choose").hide();
+							$("#instructions").hide();
+						}
 						break;
 
 					case anagramica.game.gameStates.words:
@@ -559,7 +710,8 @@ if (!anagramica.ui) {
 			//Answer text input keypress
 			$(".answer input").bind("keypress",handleAnswer);
 			
-			$("#new").live("click",newGame);			
+			$("#new").live("click",newGame);
+			$("#options li").live("click",setGameOption);
 			
 			$("#close").live("click",function() {
 				$("#instructions").hide();

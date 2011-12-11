@@ -2242,8 +2242,8 @@
 'Dennors	Donner's
 'Dennos	Donne's
 'Dennsu	Dunne's
-'Dennsy	Denny's
 'Denos	Deon's
+'Dennsy	Denny's
 'Denosv	Devon's
 'Deorsst	Dorset's
 'Deorssy	Dorsey's
@@ -4660,8 +4660,8 @@
 'Maaaahnsy	Mahayana's
 'Maaaallmsy	Malayalam's
 'Maaabciors	Maracaibo's
-'Maaablrs	Malabar's
 'Maaaccls	Malacca's
+'Maaablrs	Malabar's
 'Maaaclsuy	Macaulay's
 'Maaadeglns	Magdalena's
 'Maaadhmmnsu	Muhammadan's
@@ -5640,6 +5640,8 @@
 'Odelmsst	Olmsted's
 'Oders	Oder's
 'Odessssuy	Odysseus's
+'Odesssyy	Odyssey's
+'Odesst	Odets's
 'Odforsx	Oxford's
 'Odgooss	Osgood's
 'Odins	Odin's
@@ -5685,8 +5687,6 @@
 'Olnoss	Olson's
 'Oloss	Oslo's
 'Olrsy	Orly's
-'Odesssyy	Odyssey's
-'Odesst	Odets's
 'Onos	Ono's
 'Oorst	Oort's
 'Oostt	Otto's
@@ -7948,10 +7948,10 @@
 'Xaeirsv	Xavier's
 'Xagiinops	Xiaoping's
 'Xahoss	Xhosa's
+'Xain	Xi'an
 'Xamss	Xmas's
 'Xchiiillops	Xochipilli's
 'Xeerssx	Xerxes's
-'Xain	Xi'an
 'Xehnnoops	Xenophon's
 'Xeorsx	Xerox's
 'Xes	Xe's
@@ -8471,10 +8471,10 @@
 'aabelllprsy	ballplayer's
 'aabellmst	meatball's
 'aabelmmnsssy	assemblyman's
-'aabelmoprrstu	perambulator's
-'aabelmst	tamable's
 'aabelnos	abalone's
+'aabelmst	tamable's
 'aabelprs	parable's
+'aabelmoprrstu	perambulator's
 'aabelrsty	betrayal's
 'aabelstu	tableau's
 'aabemnss	baseman's
@@ -10033,8 +10033,8 @@
 'abcdeiiilnprsttuy	unpredictability's
 'abcdeiiilprstty	predictability's
 'abcdeiklrss	backslider's
-'abcdeikss	backside's
 'abcdeinrsstu	disturbance's
+'abcdeikss	backside's
 'abcdeirs	carbide's
 'abcdeklos	blockade's
 'abcdeloos	caboodle's
@@ -10288,8 +10288,8 @@
 'abdeirss	sidebar's
 'abdeknorsw	breakdown's
 'abdekorsy	keyboard's
-'abdelmoorsst	bloodstream's
 'abdelmrrsuy	lumberyard's
+'abdelmoorsst	bloodstream's
 'abdelms	bedlam's
 'abdelnnsss	blandness's
 'abdelnsss	baldness's
@@ -10794,10 +10794,10 @@
 'abiorstuy	obituary's
 'abiorstv	vibrato's
 'abirrs	briar's
-'abirrsttuy	tributary's
 'abiss	bias's
 'abisss	basis's
 'abisssst	bassist's
+'abirrsttuy	tributary's
 'abist	bait's
 'abjms	jamb's
 'abjnos	banjo's
@@ -10920,9 +10920,9 @@
 'accdemorsy	democracy's
 'accdeorrss	scorecard's
 'accdessu	accused's
+'accdhhinooprsy	hypochondriac's
 'accdessuu	caduceus's
 'accdfiiinoost	codification's
-'accdhhinooprsy	hypochondriac's
 'accdhhrrsuy	churchyard's
 'accdhilorsv	clavichord's
 'accdhorstw	catchword's
@@ -12063,9 +12063,9 @@
 'acemmnoprstt	compartment's
 'acemmnorsty	commentary's
 'acemmosstty	mastectomy's
-'acemnnorsst	monstrance's
 'acemnoopss	moonscape's
 'acemnors	romance's
+'acemnnorsst	monstrance's
 'acemnrsw	crewman's
 'acemnsu	acumen's
 'acemorsssttu	scoutmaster's
@@ -12165,9 +12165,9 @@
 'acfiiimmmnostu	mummification's
 'acfiiimnoorstt	mortification's
 'acfiiimnosstty	mystification's
+'acfiiinnoostt	notification's
 'acfiiinnostu	unification's
 'acfiiinoossst	ossification's
-'acfiiinnoostt	notification's
 'acfiilsty	facility's
 'acfiimnnoorst	confirmation's
 'acfiimpss	pacifism's
@@ -12253,6 +12253,7 @@
 'acgnos	conga's
 'acgors	cargo's
 'acgorsu	cougar's
+'acgrs	crag's
 'acgsttu	catgut's
 'achhiimnoppss	championship's
 'achhiloprsss	scholarship's
@@ -12300,7 +12301,6 @@
 'achins	chain's	china's
 'achioopsst	sociopath's
 'achioprssssty	astrophysics's
-'acgrs	crag's
 'achiorst	chariot's
 'achiprsstyy	psychiatry's
 'achirs	chair's
@@ -12827,10 +12827,10 @@
 'adeehimrsssst	headmistress's
 'adeehiprrss	readership's
 'adeehirrrsss	hairdresser's
-'adeehlloss	leasehold's
 'adeehmnnossss	handsomeness's
 'adeehmnns	menhaden's
 'adeehmnost	methadone's
+'adeehlloss	leasehold's
 'adeehmosst	homestead's
 'adeehnorrstt	tetrahedron's
 'adeehnosst	headstone's
@@ -13322,8 +13322,8 @@
 'adhiimmnpss	midshipman's
 'adhijs	jihad's
 'adhikmnnsu	humankind's
-'adhiknorsw	handiwork's
 'adhilopss	shipload's
+'adhiknorsw	handiwork's
 'adhilosy	holiday's
 'adhilpssy	ladyship's
 'adhimnorssy	disharmony's
@@ -13556,8 +13556,8 @@
 'aeeeglst	legatee's
 'aeeegmnnrsstt	estrangement's
 'aeeegmnrsss	meagerness's
-'aeeegmnrst	agreement's
 'aeeegnrsss	eagerness's
+'aeeegmnrst	agreement's
 'aeeegnrst	teenager's
 'aeeegprs	peerage's
 'aeeegpss	seepage's
@@ -13716,8 +13716,8 @@
 'aeegmsss	message's
 'aeegmst	gamete's
 'aeegnnrsssst	strangeness's
-'aeegnoprss	personage's
 'aeegnops	peonage's
+'aeegnoprss	personage's
 'aeegnorrst	generator's
 'aeegnorsstv	gravestone's
 'aeegnorstu	entourage's
@@ -13752,8 +13752,8 @@
 'aeehinpppprrssw	whippersnapper's
 'aeehinprssst	parenthesis's
 'aeehinrssst	earthiness's	heartiness's
-'aeehinsssttt	anesthetist's
 'aeehinsssv	heaviness's
+'aeehinsssttt	anesthetist's
 'aeehkllrrsst	rathskeller's
 'aeehkmmors	homemaker's
 'aeehkmorss	shoemaker's
@@ -14269,8 +14269,8 @@
 'aegillsv	village's
 'aegilmnnst	alignment's
 'aegilmnorsy	mineralogy's
-'aegilmnst	ligament's
 'aegilmorrs	rigmarole's
+'aegilmnst	ligament's
 'aegilnnoost	elongation's
 'aegilnnps	paneling's
 'aegilnnrs	learning's
@@ -15130,8 +15130,8 @@
 'aenpstu	peanut's
 'aenrrst	ranter's
 'aenrrsw	warren's
-'aenrss	snare's
 'aenrssstt	tartness's
+'aenrss	snare's
 'aenrsssw	rawness's
 'aenrsstv	servant's
 'aenrssw	answer's
@@ -15267,9 +15267,7 @@
 'afgls	flag's
 'afgmnors	frogman's
 'afgns	fang's
-'afgost	fagot's
 'afgrst	graft's
-'afgs	fag's
 'afhiilsss	sailfish's
 'afhiilsst	fishtail's
 'afhimnsu	hafnium's
@@ -16695,9 +16693,9 @@
 'bdeefllosw	bedfellow's
 'bdeeflorsw	flowerbed's
 'bdeegiinnrs	inbreeding's
-'bdeeginrs	breeding's
 'bdeehlors	beholder's
 'bdeeillnprss	spellbinder's
+'bdeeginrs	breeding's
 'bdeeilnorrs	borderline's
 'bdeeimmnost	embodiment's
 'bdeeimnrssstu	disbursement's
@@ -17149,8 +17147,8 @@
 'beoprrsv	proverb's
 'beoqstuu	bouquet's
 'beorrs	borer's
-'beors	robe's
 'beorrssw	browser's
+'beors	robe's
 'beorsst	sorbet's	strobe's
 'beorstt	bettor's
 'beorsw	bower's
@@ -17247,7 +17245,6 @@
 'bhiillllsy	hillbilly's
 'bhiillrsstt	stillbirth's
 'bhikoss	kibosh's
-'bhillsstu	bullshit's
 'bhimoorssst	thrombosis's
 'bhimsstu	bismuth's
 'bhiopss	bishop's
@@ -18149,7 +18146,6 @@
 'ceefgilnnostu	genuflection's
 'ceefginrstu	centrifuge's
 'ceefhikrs	kerchief's
-'ceefhkmorrstu	motherfucker's
 'ceefiimnoprsst	perfectionism's
 'ceefiimnoprst	imperfection's
 'ceefiinnosssstu	infectiousness's
@@ -18422,7 +18418,6 @@
 'cefklost	fetlock's
 'cefklpssy	flyspeck's
 'cefkls	fleck's
-'cefkrsu	fucker's
 'ceflnoorrsw	cornflower's
 'ceflnsuy	fluency's
 'cefloooprssu	fluoroscope's
@@ -19375,7 +19370,6 @@
 'cnorsy	crony's
 'cnos	con's
 'cnostuy	county's
-'cnstu	cunt's
 'cooprrst	proctor's
 'cooprstu	outcrop's
 'coops	coop's
@@ -21437,7 +21431,7 @@
 'eggilrsw	wiggler's
 'egginnss	ginseng's
 'egginossstu	suggestion's
-'egginrs	ginger's	nigger's
+'egginrs	ginger's
 'egginrss	snigger's
 'eggiorrstu	outrigger's
 'eggirrst	trigger's
@@ -23152,7 +23146,6 @@
 'gisw	wig's
 'gjsu	jug's
 'gknsu	gunk's
-'gkoos	gook's
 'glloopswy	pollywog's
 'gllsu	gull's
 'gllsuy	gully's
@@ -27607,9 +27600,9 @@ Geimnoor	Geronimo
 Geimrs	Grimes
 Geinnssu	Guinness
 Geipssy	Gypsies
-Gekrtyz	Gretzky
 Geln	Glen
 Gelnn	Glenn
+Gekrtyz	Gretzky
 Gelops	Gospel
 Gelopss	Gospels
 Gelorv	Glover
@@ -28564,8 +28557,8 @@ Jerry	Jerry
 Jerwy	Jewry
 Jess	Jess
 Jessu	Jesus
-Jesw	Jews
 Jew	Jew
+Jesw	Jews
 Jgnu	Jung
 Jhnnoos	Johnson
 Jhnnoost	Johnston
@@ -30409,14 +30402,14 @@ Naiiklo	Nikolai
 Naiikt	Nikita
 Naiimssz	Naziisms
 Naiimsz	Naziism
-Nailstuu	Nautilus
-Naimo	Naomi
 Naimssz	Nazisms
 Naimsz	Nazism
 Nain	Nina
 Nainot	Nation
+Nailstuu	Nautilus
 Nains	Nisan
 Nainss	Nissan
+Naimo	Naomi
 Nair	Nair
 Naisz	Nazis
 Nait	Nita
@@ -31966,10 +31959,10 @@ Sadnuy	Sunday
 Sadny	Sandy
 Sadopprt	Stoppard
 Sadr	Sadr
-Sadru	Sudra
 Saeeeeglns	Senegalese
 Saeefint	Stefanie
 Saeegilnnpr	Spenglerian
+Sadru	Sudra
 Saeegln	Senegal
 Saeehilns	Sinhalese
 Saeehinpt	Stephanie
@@ -32998,9 +32991,9 @@ Uaaiiknnr	Ukrainian
 Uaaiiknnrs	Ukrainians
 Uaaiinnrst	Unitarians
 Uaaiinnrt	Unitarian
-Uaainr	Urania
 Uabeiknstz	Uzbekistan
 Uabgin	Ubangi
+Uaainr	Urania
 Uabnr	Urban
 Uadeelrstu	Ultrasuede
 Uadll	Udall
@@ -37385,8 +37378,8 @@ aadeeltuv	evaluated
 aadeemnt	emanated
 aadeemqrrssu	masqueraders
 aadeemqrrsu	masquerader
-aadeemqrssu	masquerades
 aadeemqrsu	masquerade
+aadeemqrssu	masquerades
 aadeennprstuu	superannuated
 aadeenstt	antedates
 aadeenstu	nauseated
@@ -37977,9 +37970,9 @@ aadmort	matador
 aadmr	drama
 aadmrrsy	yardarms
 aadmrry	yardarm
+aadmru	maraud
 aadmrs	dramas	madras
 aadmrsu	marauds
-aadmru	maraud
 aadmsyy	maydays
 aadmyy	mayday
 aadnoprrsuw	wraparounds
@@ -38905,11 +38898,11 @@ aaemprsty	paymaster
 aaempsttu	amputates
 aaempttu	amputate
 aaemrrstu	armatures
-aaemrstu	amateurs
 aaemrrtu	armature
+aaemrstu	amateurs
 aaemrtu	amateur
-aaemsz	amazes
 aaemsss	amasses
+aaemsz	amazes
 aaemz	amaze
 aaennnst	antennas
 aaennnt	antenna
@@ -40372,9 +40365,9 @@ abcdehorss	chessboard
 abcdehorsss	chessboards
 abcdeht	batched
 abcdehu	debauch
+abcdeiiilprtty	predictability
 abcdeiiilnort	bidirectional
 abcdeiiilnprttuy	unpredictability
-abcdeiiilprtty	predictability
 abcdeiilnt	indictable
 abcdeiist	diabetics
 abcdeiit	diabetic
@@ -51030,9 +51023,9 @@ adeehist	headiest
 adeehistt	hesitated
 adeehisv	adhesive
 adeehknr	hankered	harkened
-adeehl	healed
 adeehllnrt	enthralled
 adeehllos	leasehold
+adeehl	healed
 adeehlloss	leaseholds
 adeehllosw	wholesaled
 adeehllssw	swellheads
@@ -51631,9 +51624,7 @@ adefflw	waffled
 adeffnort	affronted
 adeffqu	quaffed
 adeffst	staffed
-adefgg	fagged
 adefggl	flagged
-adefggot	faggoted
 adefghinoorsw	foreshadowing
 adefghirst	farsighted
 adefghorst	godfathers
@@ -51663,7 +51654,6 @@ adefgknoors	godforsaken
 adefgloost	floodgates
 adefgloot	floodgate
 adefgor	foraged
-adefgot	fagoted
 adefgrt	grafted
 adefhhoort	fatherhood
 adefhiilst	fishtailed
@@ -52972,9 +52962,9 @@ adelnstuu	undulates
 adelnstw	wetlands
 adelnt	dental
 adelntuu	undulate
-adelntw	wetland
 adeloorsv	overloads
 adeloorv	overload
+adelntw	wetland
 adelopptu	populated
 adelopr	leopard	paroled
 adeloprs	leopards
@@ -58775,10 +58765,10 @@ aeinooprrst	perorations
 aeinooprrt	peroration
 aeinooprssttt	protestations
 aeinooprst	operations
-aeinooprsttt	protestation
 aeinooprt	operation
 aeinooprttx	exportation
 aeinoorrsstt	restorations
+aeinooprsttt	protestation
 aeinoorrstt	restoration
 aeinoorsuvx	overanxious
 aeinoosstttu	ostentatious
@@ -59571,9 +59561,9 @@ aemrrw	warmer
 aemrs	mares	reams	smear
 aemrss	smears
 aemrsssu	masseurs
-aemrsst	masters	streams
 aemrsstt	mattress	smartest
 aemrssu	masseur
+aemrsst	masters	streams
 aemrst	master	stream	tamers
 aemrstt	matters
 aemrsttu	maturest
@@ -60048,11 +60038,8 @@ affqu	quaff
 affsst	staffs
 affst	staff
 affty	taffy
-afg	fag
 afgggiln	flagging
 afgggilnnu	unflagging
-afgggin	fagging
-afggginot	faggoting
 afgghinrtu	fraughting
 afggiilnn	finagling
 afggiimnny	magnifying
@@ -60061,10 +60048,7 @@ afggiinnrrstu	transfiguring
 afggiinrty	gratifying
 afggiintu	fatiguing
 afgginor	foraging
-afgginot	fagoting
 afgginrt	grafting
-afggost	faggots
-afggot	faggot
 afghhiilntu	highfalutin
 afghhillsst	flashlights
 afghhillst	flashlight
@@ -60182,11 +60166,8 @@ afgls	flags
 afgmnor	frogman
 afgn	fang
 afgns	fangs
-afgost	fagots
-afgot	fagot
 afgrst	grafts
 afgrt	graft
-afgs	fags
 afhiilss	sailfish
 afhiilsst	fishtails
 afhiilst	fishtail
@@ -64989,8 +64970,8 @@ bdegiinosy	disobeying
 bdegiinrst	bestriding
 bdegiint	betiding	debiting
 bdegiknnoo	bookending
-bdegiknnu	debunking
 bdegikoosu	guidebooks
+bdegiknnu	debunking
 bdegikoou	guidebook
 bdegikorrw	bridgework
 bdegilnn	blending
@@ -65045,7 +65026,6 @@ bdehiilprsu	shipbuilder
 bdehiioprt	prohibited
 bdehiirsyz	hybridizes
 bdehiiryz	hybridize
-bdehillsttu	bullshitted
 bdehilmt	thimbled
 bdehilnpsuu	unpublished
 bdehilpsu	published
@@ -66822,12 +66802,13 @@ bfgilmnu	fumbling
 bfgllorsu	bullfrogs
 bfglloru	bullfrog
 bfhilossw	fishbowls
+bfhilosw	fishbowl
 bfhirsu	furbish
 bfi	fib
 bfilllssuy	blissfully
 bfillnotuuy	bountifully
-bfhilosw	fishbowl
 bfillssu	blissful
+bfilmru	brimful
 bfilnotuu	bountiful
 bfinorrsst	firstborns
 bfinorrst	firstborn
@@ -66838,7 +66819,6 @@ bflsu	flubs
 bflsyy	flybys
 bflu	flub
 bflyy	flyby
-bfilmru	brimful
 bfo	fob
 bfos	fobs
 bggghimnuu	humbugging
@@ -66874,7 +66854,6 @@ bghhiosy	highboys
 bghhioy	highboy
 bghiiiinnt	inhibiting
 bghiiinoprt	prohibiting
-bghiillnsttu	bullshitting
 bghiilmnt	thimbling
 bghiilnpsu	publishing
 bghiinnrsu	burnishing
@@ -67099,8 +67078,6 @@ bhiioprst	prohibits
 bhiioprt	prohibit
 bhikoos	bookish
 bhikos	kibosh
-bhillsstu	bullshits
-bhillstu	bullshit
 bhillsu	bullish
 bhilmnoty	bimonthly
 bhiloorsy	boorishly
@@ -69459,7 +69436,6 @@ cdefintuy	fecundity
 cdefio	coifed
 cdefklo	flocked
 cdefknoru	unfrocked
-cdefku	fucked
 cdeflnosuy	confusedly
 cdeflnou	flounced
 cdefmnoor	conformed
@@ -69713,8 +69689,8 @@ cdeiilnrty	indirectly
 cdeiilost	solicited
 cdeiilostu	solicitude
 cdeiilosu	delicious
-cdeiilps	disciple
 cdeiilpss	disciples
+cdeiilps	disciple
 cdeiilrsu	ridicules
 cdeiilru	ridicule
 cdeiiltvy	declivity
@@ -70721,8 +70697,6 @@ ceefhikrs	kerchiefs
 ceefhilssttu	cuttlefishes
 ceefhir	chiefer
 ceefhist	chiefest
-ceefhkmorrstu	motherfuckers
-ceefhkmorrtu	motherfucker
 ceefhllruy	cheerfully
 ceefhlru	cheerful
 ceefhst	fetches
@@ -71597,7 +71571,6 @@ ceffor	coffer
 ceffors	coffers
 cefggiinnrtu	centrifuging
 cefghiiimns	mischiefing
-cefghikmnortu	motherfucking
 cefghilnty	fetchingly
 cefghint	fetching
 cefgiiklnr	flickering
@@ -71707,8 +71680,6 @@ cefklpssy	flyspecks
 cefklpsy	flyspeck
 cefkls	flecks
 cefkoorrw	workforce
-cefkrsu	fuckers
-cefkru	fucker
 cefl	clef
 ceflnnotu	confluent
 ceflnoorrsw	cornflowers
@@ -73557,7 +73528,6 @@ cfgiinnnotu	functioning
 cfgiino	coifing
 cfgiklno	flocking
 cfgiknnoru	unfrocking
-cfgiknu	fucking
 cfgilmnoorty	comfortingly
 cfgilnnosuy	confusingly
 cfgilnnou	flouncing
@@ -73623,8 +73593,6 @@ cfknorsu	unfrocks
 cfknoru	unfrock
 cfkor	frock
 cfkors	frocks
-cfksu	fucks
-cfku	fuck
 cflllooruy	colorfully
 cfllnorsuy	scornfully
 cfllooru	colorful
@@ -74577,7 +74545,6 @@ cinos	coins	icons	scion	sonic
 cinoss	scions	sonics
 cinossst	consists
 cinosst	consist	tocsins
-cinosstu	suctions
 cinosstuv	viscounts
 cinossu	cousins
 cinost	tocsin	tonics
@@ -74606,6 +74573,7 @@ cioprst	tropics
 cioprt	tropic
 ciopst	optics	topics
 ciopt	optic	topic
+cinosstu	suctions
 ciorsss	scissor
 ciorssss	scissors
 ciorstu	citrous
@@ -74615,8 +74583,8 @@ ciorsuu	curious
 ciortv	victor
 ciortvy	victory
 cioru	curio
-ciosst	stoics
 ciossuv	viscous
+ciosst	stoics
 ciost	stoic
 ciostu	coitus
 ciotx	toxic
@@ -74861,9 +74829,7 @@ cnostuuu	unctuous
 cnotu	count
 cnotuy	county
 cnssy	syncs
-cnstu	cunts
 cnsy	sync
-cntu	cunt
 cntuu	uncut
 coo	coo
 coop	coop
@@ -76470,8 +76436,8 @@ deeginnpx	expending
 deeginnrr	rendering
 deeginnrrrsu	surrendering
 deeginnrrs	renderings
-deeginnrsuv	undeserving
 deeginnrt	tendering
+deeginnrsuv	undeserving
 deeginntx	extending
 deeginop	pigeoned
 deeginorrr	reordering
@@ -77769,9 +77735,9 @@ deggiilnnoruv	overindulging
 deggiinn	deigning
 deggiinnnrsu	undersigning
 deggiinns	designing
-deggiinrss	digressing
 deggiinrv	diverging
 deggiinst	digesting
+deggiinrss	digressing
 deggij	jigged
 deggijl	jiggled
 deggijnpru	prejudging
@@ -80996,8 +80962,8 @@ eeehmnnnortt	enthronement
 eeehmnss	enmeshes
 eeehmntv	vehement
 eeehmorsst	threesomes
-eeehmorst	threesome
 eeehmorssw	somewheres
+eeehmorst	threesome
 eeehmorsw	somewhere
 eeehnrvw	whenever
 eeehoopprstttty	phototypesetter
@@ -81717,8 +81683,8 @@ eefnortu	fourteen
 eefnortw	forewent
 eefnostt	oftenest
 eefnqrstu	frequents
-eefnqrtu	frequent
 eefnrsttu	unfetters
+eefnqrtu	frequent
 eefnrttu	unfetter
 eefnrtv	fervent
 eefoprsss	professes
@@ -83477,10 +83443,10 @@ eemrst	merest	meters
 eemrsu	resume
 eemrt	meter
 eemry	emery
-eemsss	messes
-eemst	meets	metes	teems
 eems	seem
 eemss	seems
+eemsss	messes
+eemst	meets	metes	teems
 eemt	meet	mete	teem
 eennnoss	nonsense
 eennnostv	nonevents
@@ -84743,9 +84709,9 @@ egginosss	sogginess
 egginossstu	suggestions
 egginosstu	suggestion
 egginouv	vogueing
-egginr	ginger	nigger
+egginr	ginger
 egginrru	grungier
-egginrs	niggers	snigger
+egginrs	snigger
 egginrss	sniggers
 egginrstu	gesturing	grungiest
 egginrttu	guttering
@@ -84823,9 +84789,9 @@ eghhit	eighth	height
 eghhllossttuy	thoughtlessly
 eghhlossttu	thoughtless
 eghhmottu	methought
-eghhnoorsstu	thoroughness
 eghhoorrtu	thorougher
 eghhoorssuu	roughhouses
+eghhnoorsstu	thoroughness
 eghhoorsttu	thoroughest
 eghhoorsuu	roughhouse
 eghhorttu	rethought
@@ -85938,11 +85904,11 @@ ehhsssu	shushes
 ehhssu	hushes
 ehi	hie
 ehiiilnpsst	philistines
-ehiiilnpst	philistine
-ehiiilosstt	hostilities
 ehiikmrsss	skirmishes
 ehiiknstt	kittenish
+ehiiilnpst	philistine
 ehiikssw	whiskies
+ehiiilosstt	hostilities
 ehiillr	hillier
 ehiillst	hilliest
 ehiilmos	homilies
@@ -85987,8 +85953,7 @@ ehiiqrssu	squishier
 ehiiqssstu	squishiest
 ehiirrstt	thirstier
 ehiirssttt	thirstiest
-ehiirstt	shittier	thirties
-ehiissttt	shittiest
+ehiirstt	thirties
 ehiissttx	sixtieths
 ehiisttx	sixtieth
 ehik	hike
@@ -90184,7 +90149,6 @@ ghiinss	hissing
 ghiinsst	insights
 ghiinssw	swishing
 ghiinst	insight
-ghiinstt	shitting
 ghiinstw	whitings
 ghiinsw	wishing
 ghiintt	hitting	tithing
@@ -91216,8 +91180,6 @@ gjos	jogs
 gjsu	jugs
 gju	jug
 gknu	gunk
-gkoo	gook
-gkoos	gooks
 gllmuy	glumly
 gllnoosttuuy	gluttonously
 glloopsty	polyglots
@@ -91559,12 +91521,10 @@ hirtty	thirty
 hirw	whir
 his	his
 hiss	hiss
-hisst	shits
 hisstx	sixths
 hissu	sushi
 hissw	swish
-hist	hits	shit	this
-histty	shitty
+hist	hits	this
 histw	whist	whits	withs
 histx	sixth
 hisw	wish

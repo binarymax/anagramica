@@ -1,14 +1,13 @@
 //Takes the WordNet dictionary files, and outputs a file that has the aggregated anagram map
 
 var fs = require('fs'),
-    util = require('util');
+    util = require('util'),
+    root = '/home/max/apps/anagramica/anagramica.com/lib/dict/';
 
 function load() {
 
-	parseDictFiles([
-    	'/home/max/anagramica/lib/dict/words.txt'
-	], function(hashArray,hashIndex) {
-	    writeAnagramFile('/home/max/anagramica/lib/dict/anagrams.txt', hashArray,hashIndex);
+	parseDictFiles([root+'words.txt'], function(hashArray,hashIndex) {
+	    writeAnagramFile(root+'anagrams.txt', hashArray,hashIndex);
 	});
 
 }

@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+
+	<title>About A|N|A|G|R|A|M|I|C|A</title>
+
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+</head>
+<body>
+
+	<header>
+		<h1 class="logo center">ANAGRAMICA | <em>about</em></h1> 
+	</header>
+
+	<div class="center">
+
+		<article>
+			<h3>History</h3>
+				<p>Anagramica was made in about 20 hours total, and published in an afternoon.</p>
+				<p>I spent an hour one sunday writing a quick algorithm in javascript to find the best possible anagram of a given letter set.  Later in the week, while taking a trip to Yerevan, I needed something to do on the 5 hour plane ride, and began coding the game.</p>
+				<p>I initialy launched the game to my friends on facebook, looking for feedback.  The response was to have automatic letter choices, more time, and better compatibility on mobile.  The first two additions were trivial, and I will spend more time on the third when I have more time.  Personally I wanted to make the game more interesting, and added a more intricate point system with different points per letter and bonuses</p> 
+				<p>I wanted to make a game that only used javascript and css3 - no graphics - and degrades well.  It looks much nicer on some browsers (recent chrome, firefox, opera, and safari), than others (internet explorer, older browser versions).  The server side is written entirely in node.js.  The dictionary I used is the default american-english dictionary that is bundled with Ubuntu - but I stripped lots of it out, including proper nouns and naughty words.</p>
+			</p>
+		</article>
+
+		<br>
+
+		<article>
+			<h3>Counting Letters</h3>
+			
+			<p>
+				In devising a score for the letters in anagramica, I turned to some basic number crunching.  I wanted to score the letters based on their frequency in the words.  I stared with a simple run of all the words in the dictionary:			
+				<pre class="terminal">
+max@SOLAR:~/apps/anagramica/anagramica.com/lib$ node HashLetters.js
+e	68815	0.114679816	1	+++++
+s	52232	0.087044338	1	+++++
+i	51807	0.086336078	1	+++++
+a	47008	0.078338571	1	+++++
+n	43319	0.072190873	1	+++++
+r	42979	0.071624265	1	+++++
+t	40028	0.066706440	1	+++++
+o	35707	0.059505517	1	+++++
+l	31324	0.052201272	2	++++
+c	23837	0.039724228	2	++++
+d	23508	0.039175951	2	++++
+u	19959	0.033261562	2	++++
+g	18678	0.031126783	2	++++
+p	16820	0.028030436	2	++++
+m	16406	0.027340508	2	++++
+h	14074	0.023454243	2	++++
+b	11632	0.019384663	3	+++
+y	9100	0.015165099	3	+++
+f	8160	0.013598594	3	+++
+v	6153	0.010253940	3	+++
+k	6075	0.010123953	3	+++
+w	5590	0.009315704	3	+++
+z	2538	0.004229562	4	++
+x	1617	0.002694721	5	+
+j	1361	0.002268098	5	+
+q	1160	0.001933133	5	+
+Total letters: 599887
+				</pre>
+	
+				You may have noticed above that a log scale was used to get the + count, and scored on the inverse. 
+	
+				<hr>
+	
+				The tally above is for all words, I just want the words that I use in the game, so I narrowed the results to all words having at least 2 letters, and at most 10.  This is a significant reduction to less than half the letters of the original tally:
+				<pre class="terminal">
+max@SOLAR:~/apps/anagramica/anagramica.com/lib$ node HashLetters.js
+e	30917	0.117421638	1	+++++
+s	23748	0.090194037	1	+++++
+a	21642	0.082195526	1	+++++
+i	20476	0.077767101	1	+++++
+r	18946	0.071956217	1	+++++
+n	17583	0.066779592	1	+++++
+t	16057	0.060983900	1	+++++
+o	15416	0.058549405	1	+++++
+l	14197	0.053919688	2	++++
+d	11648	0.044238679	2	++++
+c	9773	0.037117497	2	++++
+u	8821	0.033501836	2	++++
+g	7987	0.030334334	2	++++
+m	7320	0.027801093	2	++++
+p	6972	0.026479401	2	++++
+h	6468	0.024565228	2	++++
+b	5653	0.021469887	2	++++
+y	4069	0.015453913	3	+++
+f	3705	0.014071454	3	+++
+k	3275	0.012438330	3	+++
+w	2868	0.010892559	3	+++
+v	2699	0.010250703	3	+++
+z	1087	0.004128386	4	++
+j	747	0.002837078	4	++
+x	725	0.002753523	4	++
+q	500	0.001898981	5	+
+Total letters: 263299
+				</pre>
+				
+				I gave it some of the human touch - by making &apos;x&apos; worth 5 points.	
+
+			</p>		
+			
+		</article>
+		
+	</div>
+
+	<footer>
+		<div class="footnotes center">A game by <a href="http://binarymax.com" target="top">Max Irwin</a> | Copyright 2011 | <a href="/privacy.html">Privacy Policy</a> | <a href="/api">API</a></div>
+	</footer>
+
+</body>
+</html>
+
