@@ -593,6 +593,18 @@ if (!anagramica.ui) {
 
 		}
 		
+		var handleLetterTouch = function() {
+			var letter = $(this).text();
+			$(".answer input").val($(".answer input").val()+letter);
+		};
+		
+		var handleAnswerTouch = function(e) {
+			e.preventDefault();
+			handleAnswer.apply(this,[{which:13}]);
+			$(this).blur();
+			return false;
+		};
+
 		//Handles keypress event for answer input
 		var handleAnswer = function(e){
 			
@@ -706,17 +718,24 @@ if (!anagramica.ui) {
 			//Consonant/Vowel choice by button or keypress
 			$("#consonant,#vowel").bind("click",nextGameLetter);
 			$(document).bind("keypress",handleKeys);
-				   
+						
 			//Answer text input keypress
 			$(".answer input").bind("keypress",handleAnswer);
-			
-			$("#new").live("click",newGame);
-			$("#options li").live("click",setGameOption);
+						
+			$("#new").live("click ontouchstart",newGame);
+			$("#options li").live("click ontouchstart",setGameOption);
 			
 			$("#close").live("click",function() {
 				$("#instructions").hide();
 				instructions = false;
 			});
+			
+			if('ontouchstart' in window){
+				//Touch based UI's
+				$(".letter").live("touchstart",handleLetterTouch);
+				$(".answer input").live("click",handleAnswerTouch);
+				$(".answer input").attr("readonly","readonly");	
+			}
 
 		}
 		
