@@ -6,7 +6,9 @@
 var express = require('express'),
     finder  = require('./lib/finder');
 
-var app = module.exports = express.createServer();
+var port = 8001;
+
+var app = module.exports = express();
 
 // Configuration
 
@@ -51,23 +53,23 @@ app.get('/all/:letters', function(req, res) {
 //Home Page
 app.get('/', function(req, res){
 	res.sendfile('./public/index.html');
-    });
+});
 
 //About Page
 app.get('/about.html', function(req, res){
 	res.sendfile('./public/about.html');
-    });
+});
 
 //Privacy Policy Page
 app.get('/privacy.html', function(req, res){
 	res.sendfile('./public/privacy.html');
-    });
+});
 
 //API Page
 app.get('/api', function(req, res){
 	res.sendfile('./public/api.html');
-    });
+});
 
 
-app.listen(8001);
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+app.listen(port);
+console.log("Express server listening on port %d in %s mode", port, app.settings.env);
