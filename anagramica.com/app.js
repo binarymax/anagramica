@@ -6,7 +6,7 @@
 var express = require('express'),
     finder  = require('./lib/finder');
 
-var port = 8001;
+var port = 8501;
 
 var app = module.exports = express();
 
